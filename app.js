@@ -1,28 +1,27 @@
-alert('Boas vindas ao jogo do número secreto!');
-let numeroMaximo = 5000;
-let numeroSecreto = Math.floor(Math.random() * numeroMaximo) + 1;
-let chute;
-let tentativas = 1;
+let numeroSecreto = gerarNumeroAleatorio();
 
-// enquanto o chute for diferente do número secreto, continue pedindo um novo chute
-while (chute != numeroSecreto) {
-    chute = prompt(`Digite um número entre 1 e ${numeroMaximo}:`);
-    // se o chute for igual ao número secreto, exiba a mensagem "Isso aí! Você acertou!"
-    if (chute == numeroSecreto) {
-        break
-    } else {
-        if (chute > numeroSecreto) {
-            alert(`O número secreto é menor que ${chute}`);
-        } else {
-            alert(`O número secreto é maior que ${chute}`);
-        }
-        tentativas++;
-        
-    }
-
+function exibirTextoNaTela(tag, texto) {
+    let campo = document.querySelector(tag);
+    campo.innerHTML = texto;
 }
 
-let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
-alert(`Isso aí! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} ${palavraTentativa}!`);
+exibirTextoNaTela('h1','Jogo do número secreto');
+exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
 
+function verificarChute() {
+    let chute = document.querySelector('input').value;
+    if (chute == numeroSecreto) {
+        exibirTextoNaTela('h1', 'Acertou!');
+        exibirTextoNaTela('p', 'Você descobriu o número secreto!');
+    } else {
+        if (chute > numeroSecreto) {
+            exibirTextoNaTela('p', 'O número secreto é menor.');
+        } else {
+            exibirTextoNaTela('p', 'O número na tela é maior.');
+        }
+    }
+}
 
+function gerarNumeroAleatorio() {
+    return Math.floor(Math.random() * 10 + 1);
+}
