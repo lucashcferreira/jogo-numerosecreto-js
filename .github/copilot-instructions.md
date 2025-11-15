@@ -26,6 +26,7 @@ This is a simple browser-based number guessing game built with vanilla JavaScrip
 - No build or test scripts; edit files directly and refresh the browser to see changes.
 - Debugging is done via browser DevTools.
 - To add features (e.g., implement "Novo jogo"), update `app.js` and ensure UI changes are reflected in `index.html`.
+- Always use semantic commit messages in Portuguese when committing code.
 
 ## Integration Points
 - Uses Google Fonts and ResponsiveVoice (via CDN) for enhanced UI and accessibility.
@@ -48,18 +49,28 @@ To implement the "Novo jogo" button:
 If any section is unclear or missing, please provide feedback for further refinement.
 
 ## Commit Message Policy
-Always generate semantic commit messages in Portuguese when using Visual Studio or the Git extension in Visual Studio. Commit messages must always be semantic, clear, descriptive, and written in Portuguese.
+Always generate semantic commit messages in Brazilian Portuguese when using Visual Studio or the Git extension in Visual Studio Code. Commit messages must always be semantic, clear, descriptive, and written in Portuguese.
 
-Follow the semantic commit format strictly:
-- `feat(screen1): mensagem` - for new features
-- `fix(dashboard): mensagem` - for bug fixes
-- `ci(copilot): mensagem` - for CI/CD changes
-- `docs(): mensagem` - for documentation updates
-- `style(): mensagem` - for code style changes
-- `refactor(): mensagem` - for code refactoring
-- `test(): mensagem` - for test additions or changes
+Follow the semantic commit format strictly - the type and scope in parentheses are mandatory:
+- `feat(componente): mensagem` - for new features
+- `fix(componente): mensagem` - for bug fixes
+- `ci(componente): mensagem` - for CI/CD changes
+- `docs(componente): mensagem` - for documentation updates
+- `style(componente): mensagem` - for code style changes
+- `refactor(componente): mensagem` - for code refactoring
+- `test(componente): mensagem` - for test additions or changes
 
-Examples:
-- `feat(): implementar botão novo jogo`
-- `fix(): corrigir comparação de números`
-- `ci(): adicionar workflow para testes`
+**Required Format:** `type(scope): description` where:
+- `type` is the commit type (feat, fix, ci, docs, style, refactor, test)
+- `scope` is the component, class, screen, or file modified (e.g., app, index, style, verificarChute)
+- `description` is written in Portuguese
+
+**Correct Examples:**
+- `feat(verificarChute): implementar lógica de novo jogo`
+- `fix(gerarNumeroAleatorio): corrigir comparação de números`
+- `ci(github): adicionar workflow para testes`
+- `docs(README): atualizar instruções de instalação`
+- `refactor(app): reorganizar funções do jogo`
+- `style(app): ajustar formatação de código`
+
+**Never** use formats like `feat: mensagem` (without scope and parentheses) or English descriptions.
